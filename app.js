@@ -67,7 +67,7 @@ function calculateCalories(e) {
 
   let fat = document.getElementById(`fat`);
 
-  fat.value  = Math.round(totalCalories.value * (25/100))/9;
+  fat.value  = Math.round (totalCalories.value * (25/100))/9;
 
 
 }
@@ -107,3 +107,4 @@ document.addEventListener("DOMContentLoaded", () => {
       nav.classList.remove("nav--open");
   });
 });
+

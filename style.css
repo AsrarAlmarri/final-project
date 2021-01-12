@@ -1,7 +1,10 @@
 body{
-  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) , url(./img/website-background.jpg);
+  background:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) , url(./img/website-background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
-  
 }
 
 .preload *{
@@ -26,16 +29,30 @@ body{
   justify-content: center;
 
   align-items: center;
+
+  text-align: center;
+
+ font-size:15px;
 }
 
+ .Gender{
+  margin-left:227px !important;
+  font-weight: bold;
+  font-size: 18px;
+ }
+
+ .activity{
+   
+  margin-left:238px;
+  font-weight: bold;
+  font-size: 18px;
+
+ }
 .container fieldset {
+
   border:0 none;
 }
 
-.container .calc{
- margin-left: 200px;
-
-}
 .header{
   position: fixed;
   top:0;
@@ -61,17 +78,18 @@ body{
 
 
 
+
 .nav__links {
   position: fixed;
   top:0;
   left:0;
   z-index:2;
   height:100vh;
-  width:250px;
-  background:url(./img/sidebar-background.jpg);
-  background-size:300px;
-  background-repeat:round;
-  transform:translateX(-250px) ;
+  width:300px;
+  background:url(./img/sidebar-background.jpg) ;
+  background-size:cover;
+  background-repeat:no-repeat;
+  transform:translateX(-300px) ;
   transition: transform 0.2s;
   
 }
@@ -87,11 +105,29 @@ body{
   display:flex;
   align-items:center;color:#666666;
   font-weight:bold;
-  font-size:14px;
+  font-size:20px;
   text-decoration: none;
   padding: 19px 15px;
   background: transform 0.3s;
 
+}
+
+.nav__link .dropdown-btn{
+  color:#666666;
+  font-weight:bold;
+  font-size:20px;
+  text-decoration: none;
+  padding: 19px px;
+  background: transform 0.3s;
+  background: rgba(253, 245, 230, 0);
+  border:0;
+
+}
+.dropdown-btn:hover{
+  color:#009578;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  border:0;
 }
 
 .nav__link > i {
@@ -132,3 +168,35 @@ body{
 
 }
 
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+    content: '';  
+  box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: #FF3D00;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
