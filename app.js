@@ -25,26 +25,26 @@ function calculateCalories(e) {
   if (age.value === '' || weight.value === '' || height.value === '' || 80 < age.value || age.value < 15) {
     errorMessage('Please make sure the values you entered are correct')
   } else if(gender.id === 'male' && activity === "1") {
-    totalCalories.value = 1.2 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)));
+    totalCalories.value = Math.round( 1.2 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value))));
   } else if(gender.id === 'male' && activity === "2") {
-    totalCalories.value = 1.375 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)));
+    totalCalories.value = Math.round( 1.375 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value))));
   } else if (gender.id === 'male' && activity === "3") {
-    totalCalories.value = 1.55 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)));
+    totalCalories.value = Math.round( 1.55 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value))));
   } else if(gender.id === 'male' && activity === "4") {
-    totalCalories.value = 1.725 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)));
+    totalCalories.value = Math.round( 1.725 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value))));
   } else if(gender.id === 'male' && activity === "5") {
-    totalCalories.value = 1.9 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value)))
+    totalCalories.value =Math.round(  1.9 * (66.5 + (13.75 * parseFloat(weight.value)) + (5.003 * parseFloat(height.value)) - (6.755 * parseFloat(age.value))));
     ;
   } else if(gender.id === 'female' && activity === "1") {
-    totalCalories.value = 1.2 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value)));
+    totalCalories.value = Math.round( 1.2 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value))));
   } else if(gender.id === 'female' && activity === "2") {
-    totalCalories.value = 1.375 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value)));
+    totalCalories.value =Math.round(  1.375 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value))));
   } else if(gender.id === 'female' && activity === "3") {
-    totalCalories.value = 1.55 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value)));
+    totalCalories.value = Math.round( 1.55 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value))));
   } else if(gender.id === 'female' && activity === "4") {
-    totalCalories.value = 1.725* (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value)));
+    totalCalories.value =Math.round(  1.725* (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height.value)) - (4.676 * parseFloat(age.value))));
   } else {
-    totalCalories.value = 1.9 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height)) - (4.676 * parseFloat(age.value)));
+    totalCalories.value =Math.round(  1.9 * (655 + (9.563 * parseFloat(weight.value)) + (1.850 * parseFloat(height)) - (4.676 * parseFloat(age.value))));
   } 
 
   document.getElementById('results').style.display = 'block';
@@ -55,19 +55,19 @@ function calculateCalories(e) {
 
   let cho = document.getElementById(`cho`);
 
-  cho.value  = (totalCalories.value * (55/100))/4;
+  cho.value  = Math.round(totalCalories.value * (55/100))/4;
 
   //calculating the protein 
 
   let protein = document.getElementById(`protein`);
 
-  protein.value  = (totalCalories.value * (20/100))/4;
+  protein.value  = Math.round(totalCalories.value * (20/100))/4;
 
   //calculation the fat
 
   let fat = document.getElementById(`fat`);
 
-  fat.value  = (totalCalories.value * (25/100))/9;
+  fat.value  = Math.round(totalCalories.value * (25/100))/9;
 
 
 }
@@ -92,14 +92,18 @@ function clearError() {
   document.querySelector('.alert').remove();
 }
 
-function w3_open() {
-  document.getElementById("main").style.marginLeft = "25%";
-  document.getElementById("mySidebar").style.width = "25%";
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("openNav").style.display = 'none';
-}
-function w3_close() {
-  document.getElementById("main").style.marginLeft = "0%";
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("openNav").style.display = "inline-block";
-}
+window.addEventListener("load", () => {
+  document.body.classList.remove("preload");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav");
+
+  document.querySelector("#btnNav").addEventListener("click", () => {
+      nav.classList.add("nav--open");
+  });
+
+  document.querySelector(".nav__overlay").addEventListener("click", () => {
+      nav.classList.remove("nav--open");
+  });
+});

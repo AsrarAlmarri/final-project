@@ -1,7 +1,14 @@
 body{
-  background:url(./img/website-background.jpg)
+  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) , url(./img/website-background.jpg);
+
+  
 }
 
+.preload *{
+
+  transition: none !important;
+
+}
 
 #loading, #results {
     display: none;
@@ -12,6 +19,7 @@ body{
     width: 100%;
   }
 
+
 .container{
   display:flex;
 
@@ -20,6 +28,14 @@ body{
   align-items: center;
 }
 
+.container fieldset {
+  border:0 none;
+}
+
+.container .calc{
+ margin-left: 200px;
+
+}
 .header{
   position: fixed;
   top:0;
@@ -38,3 +54,81 @@ body{
   border:none;
   cursor: pointer;
 }
+
+#calorie-form{
+  border: hidden;
+}
+
+
+
+.nav__links {
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:2;
+  height:100vh;
+  width:250px;
+  background:url(./img/sidebar-background.jpg);
+  background-size:300px;
+  background-repeat:round;
+  transform:translateX(-250px) ;
+  transition: transform 0.2s;
+  
+}
+
+.nav--open .nav__links{
+
+  transform:translateX(0px) ;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+.nav__link{
+  display:flex;
+  align-items:center;color:#666666;
+  font-weight:bold;
+  font-size:14px;
+  text-decoration: none;
+  padding: 19px 15px;
+  background: transform 0.3s;
+
+}
+
+.nav__link > i {
+
+  margin-right: 15px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+
+}
+
+.nav__link:hover{
+  color:#009578;
+  background:#eeeeee49;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  
+  
+}
+
+.nav__overlay{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nav--open .nav__overlay{
+
+  visibility:visible;
+
+  opacity: 1;
+
+}
+
