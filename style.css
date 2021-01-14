@@ -4,13 +4,33 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
+   
 }
 
+*{
+  
+}
 .preload *{
 
   transition: none !important;
 
+}
+
+.headerr {
+  display:flex;
+  justify-content: center;
+  padding-top:20px;
+color: #000000;
+background:#009577b1;
+height:90px;
+ 
+
+}
+
+.sticky {
+position: fixed;
+top: 0;
+width: 100%;
 }
 
 #loading, #results {
@@ -33,12 +53,18 @@ body{
   text-align: center;
 
  font-size:15px;
+
+ padding-top:90px;
+
+  
+
 }
 
  .Gender{
   margin-left:227px !important;
   font-weight: bold;
   font-size: 18px;
+ 
  }
 
  .activity{
@@ -200,3 +226,14 @@ body{
     transform: rotate(360deg);
   }
 } 
+
+.Abbout p{
+
+  display:flex;
+  justify-content:center;
+  margin:30px 100px;
+  font-size:x-large;
+  font-weight: bold;
+  font-family:cursive;
+  background: rgba(255, 248, 220, 0.482);
+}
