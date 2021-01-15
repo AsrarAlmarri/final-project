@@ -39,5 +39,5 @@
 
 بإستخدام موقع netlify قمت بنشر الموقع :
 
-https://5fffb2cdb949b610fea52245--jovial-mclean-cff39c.netlify.app/
+https://health-trackerr.netlify.app/
 
